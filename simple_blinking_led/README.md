@@ -1,0 +1,1 @@
+This project demonstrates how to control a simple LED using an ESP32. The LED will blink on and off at regular intervals.
