@@ -1,5 +1,5 @@
 /**
- * @file   main.ino
+ * @file   sketch.ino
  * @brief  Demonstrates button press detection with hardware interrupt and debounce on ESP32.
  * 
  * This sketch configures a GPIO pin with a pull-up resistor as a button input,
