@@ -1,0 +1,1 @@
+This project demonstrates how to display a message on console when a button is pressed with hardware interrupt and debounce using an ESP32. The message will be displayed every time the button is pressed.
