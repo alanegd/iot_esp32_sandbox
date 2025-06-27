@@ -1,0 +1,1 @@
+This project demonstrates how to display a ambient measurements on a LCD and to measure the temperature and humidity using a DHT22. The message will be updated every 5 seconds.
