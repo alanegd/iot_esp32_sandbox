@@ -1,0 +1,1 @@
+This project demonstrates how to detect movement using a PIR sensor. When movement is detected, a servo motor is activated to move to a specific position. When no movement is detected, the servo motor returns to its initial position. The activity is sent to a web server via an HTTP POST request.

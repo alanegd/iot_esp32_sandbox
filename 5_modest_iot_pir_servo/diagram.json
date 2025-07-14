@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Alan Enrique Galavis Du Bois",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -80, "left": 200, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 180.4, "left": 201.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 192.5, "left": 153.9, "rotate": 90, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc1",
+      "top": 225.6,
+      "left": 149.76,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND", "black", [ "v0" ] ],
+    [ "servo1:GND", "esp:GND", "black", [ "h0" ] ],
+    [ "servo1:PWM", "esp:D27", "orange", [ "h-230.4", "v-138.6" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "servo1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "servo1:V+", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "pir1:OUT", "esp:D2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
