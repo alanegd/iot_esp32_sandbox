@@ -18,5 +18,10 @@ class ButtonSensor : public Sensor {
   private:
     int lastState;
     Event buttonEvent;
+
+    int lastFlickerableState; 
+    int stableState;
+    unsigned long lastDebounceTime;
+    static const unsigned long DEBOUNCE_DELAY = 50;
 };
 #endif

@@ -10,20 +10,32 @@ ButtonSensor::ButtonSensor(int pin, int eventId, EventHandler* handler) :
 
 
 void ButtonSensor::check() {
-    int currentState = digitalRead(pin);
+    int currentFlickerableState = digitalRead(pin);
 
-    if (currentState != lastState) {
-        delay(50);
-        currentState = digitalRead(pin);
-        if (currentState == HIGH && lastState == LOW) {
-            Serial.print("Button on pin ");
-            Serial.print(pin);
-            Serial.println(" pressed.");
-            if (handler != nullptr) {
-                handler->on(buttonEvent);
-            }
+    if (currentFlickerableState != lastFlickerableState) {
+        lastDebounceTime = millis();
+    }
+
+    lastFlickerableState = currentFlickerableState;
+
+
+    if ((millis() - lastDebounceTime) <= DEBOUNCE_DELAY) {
+        return;
+    }
+
+    if (currentFlickerableState == stableState) {
+        return;
+    }
+
+    stableState = currentFlickerableState;
+
+    if (stableState == HIGH) {
+        Serial.print("Button on pin ");
+        Serial.print(pin);
+        Serial.println(" pressed (Debounced & Clean).");
+        if (handler != nullptr) {
+            handler->on(buttonEvent);
         }
     }
-    lastState = currentState;
 }
 
