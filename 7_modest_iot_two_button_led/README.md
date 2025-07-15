@@ -1,0 +1,1 @@
+This project demonstrates how to switch between two modes with button presses. One button will turn on/off a LED, and the other will toggle blinking of the LED.
