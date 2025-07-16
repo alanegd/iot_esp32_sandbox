@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-c6-devkitc-1", "id": "esp", "top": -4.31, "left": 4.12, "attrs": {} },
+    { "type": "chip-yf-s201-sensor", "id": "chip1", "top": 49.02, "left": -194.99, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -152.1, "left": -32.9, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "chip1:GND", "esp:GND.1", "black", [ "h64.21", "v106.62" ] ],
+    [ "chip1:VCC", "esp:5V", "red", [ "h45.01", "v87.42" ] ],
+    [ "chip1:OUT", "esp:6", "green", [ "h73.81", "v20.22" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v19.2", "h-48", "v192" ] ],
+    [ "ultrasonic1:GND", "esp:GND.4", "black", [ "h-1.2", "v19.2", "h29.9" ] ],
+    [ "ultrasonic1:TRIG", "esp:23", "purple", [ "v38.4", "h76.4", "v86.4" ] ],
+    [ "ultrasonic1:ECHO", "esp:22", "green", [ "v28.8", "h76", "v105.6" ] ]
+  ],
+  "dependencies": {}
+}
